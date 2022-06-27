@@ -3,4 +3,4 @@ GSA-Fuzz is a AFL-based fuzzer that utilizes Gravitational Search Algorithm (GSA
 # Usage
 The Usage of GSA-Fuzz is the same as AFL's.
 # Others
-if you use MutiFuzz/desockmulti, please kindly help to cite our paper:
+if you use GSA-Fuzz, please kindly help to cite our paper:
