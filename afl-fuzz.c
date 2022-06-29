@@ -556,7 +556,7 @@ void sort(double* arr, int l)
 {
     int i, j;
     double v;
-    //ÅÅĞòÖ÷Ìå
+    //æ’åºä¸»ä½“
     for (i = 0; i < l - 1; i++)
         for (j = i + 1; j < l; j++)
         {
@@ -617,10 +617,10 @@ void segment_findtopK(int k)
 
 }
 
-//3ÇóÊÊÓ¦ÖµÖĞ×î´óÖµ
+//3æ±‚é€‚åº”å€¼ä¸­æœ€å¤§å€¼
 double best(double* fit)
 {
-    double max = *fit; // ³õÊ¼»¯×î´óÖµÎªÊı×éµÚÒ»¸öÔªËØ
+    double max = *fit; // åˆå§‹åŒ–æœ€å¤§å€¼ä¸ºæ•°ç»„ç¬¬ä¸€ä¸ªå…ƒç´ 
     double best_fit;
     for (int i = 1; i < SIZEPOP; i++)
     {
@@ -633,11 +633,11 @@ double best(double* fit)
 
 }
 
-//4ÇóÊÊÓ¦ÖµÖĞ×îĞ¡Öµ
+//4æ±‚é€‚åº”å€¼ä¸­æœ€å°å€¼
 double worst(double* fit)
 {
 
-    double min = *fit; // ³õÊ¼»¯×îĞ¡ÖµÎªÊı×éµÚÒ»¸öÔªËØ
+    double min = *fit; // åˆå§‹åŒ–æœ€å°å€¼ä¸ºæ•°ç»„ç¬¬ä¸€ä¸ªå…ƒç´ 
     double worst_fit;
     for (int i = 1; i < SIZEPOP; i++)
     {
@@ -751,7 +751,7 @@ void particle_initialize() {
                 for (int m = 0; m < OPERATOR_NUM; m++)
                 {
                     double x = RAND_C;
-                    force[i][m] += x * g_mass[j] * (position[j][m] - position[i][m]) / (r + R);//ÇóµÚi¸öÁ£×Ó¸÷¸öÎ¬¶ÈÉÏµÄºÏÁ¦
+                    force[i][m] += x * g_mass[j] * (position[j][m] - position[i][m]) / (r + R);//æ±‚ç¬¬iä¸ªç²’å­å„ä¸ªç»´åº¦ä¸Šçš„åˆåŠ›
                 }
                 sum = 0;
             }
@@ -771,7 +771,7 @@ void particle_initialize() {
             else if (position[i][m] < POMIN)
                 position[i][m] = POMIN;
             pos_temp[i] += position[i][m];
-            //¸üĞÂËÙ¶ÈºÍÎ»ÖÃ  
+            //æ›´æ–°é€Ÿåº¦å’Œä½ç½®  
             force[i][m] = 0;
         }
     }
@@ -858,7 +858,7 @@ void segment_op_initialize(void) {
                 for (int m = 0; m < OPERATOR_NUM; m++)
                 {
                     double x = RAND_C;
-                    force[i][m] += x * segment_op_gmass[j] * ((segment_op_temp_pro[j][m] - (segment_op_temp_pro[i][m]) / (r + R)));//ÇóµÚi¸öÁ£×Ó¸÷¸öÎ¬¶ÈÉÏµÄºÏÁ¦
+                    force[i][m] += x * segment_op_gmass[j] * ((segment_op_temp_pro[j][m] - (segment_op_temp_pro[i][m]) / (r + R)));//æ±‚ç¬¬iä¸ªç²’å­å„ä¸ªç»´åº¦ä¸Šçš„åˆåŠ›
                 }
                 sum = 0;
 
@@ -886,7 +886,7 @@ void segment_op_initialize(void) {
                 segment_op_temp_pro[i][m] = POMIN;
 
             pos_temp[i] += segment_op_temp_pro[i][m];
-            //¸üĞÂËÙ¶ÈºÍÎ»ÖÃ  
+            //æ›´æ–°é€Ÿåº¦å’Œä½ç½®  
             force[i][m] = 0;
         }
 
@@ -951,7 +951,7 @@ void segment_initialize(void) {
                 sum += (segment_temp_pro[j] - segment_temp_pro[i]) * (segment_temp_pro[j] - segment_temp_pro[i]);
                 R = sqrt(sum);
                 double x = RAND_C;
-                segment_force[i] += x * segment_gmass[j] * ((segment_temp_pro[j] - (segment_temp_pro[i]) / (r + R)));//ÇóµÚi¸öÁ£×Ó¸÷¸öÎ¬¶ÈÉÏµÄºÏÁ¦
+                segment_force[i] += x * segment_gmass[j] * ((segment_temp_pro[j] - (segment_temp_pro[i]) / (r + R)));//æ±‚ç¬¬iä¸ªç²’å­å„ä¸ªç»´åº¦ä¸Šçš„åˆåŠ›
                 sum = 0;
 
             }
@@ -975,7 +975,7 @@ void segment_initialize(void) {
             segment_temp_pro[i] = POMIN;
 
         pos_temp += segment_temp_pro[i];
-        //¸üĞÂËÙ¶ÈºÍÎ»ÖÃ  
+        //æ›´æ–°é€Ÿåº¦å’Œä½ç½®  
         segment_force[i] = 0;
     }
 
@@ -1136,7 +1136,7 @@ void content_pro_calculate()
                 for (int m = 0; m < OPERATOR_NUM; m++)
                 {
                     double x = RAND_C;
-                    force[i][m] += x * segment_op_gmass[j] * ((segment_op_temp_pro[j][m] - (segment_op_temp_pro[i][m]) / (r + R)));//ÇóµÚi¸öÁ£×Ó¸÷¸öÎ¬¶ÈÉÏµÄºÏÁ¦
+                    force[i][m] += x * segment_op_gmass[j] * ((segment_op_temp_pro[j][m] - (segment_op_temp_pro[i][m]) / (r + R)));//æ±‚ç¬¬iä¸ªç²’å­å„ä¸ªç»´åº¦ä¸Šçš„åˆåŠ›
                 }
                 sum = 0;
 
@@ -1164,7 +1164,7 @@ void content_pro_calculate()
                 segment_op_temp_pro[i][m] = POMIN;
 
             pos_temp[i] += segment_op_temp_pro[i][m];
-            //¸üĞÂËÙ¶ÈºÍÎ»ÖÃ  
+            //æ›´æ–°é€Ÿåº¦å’Œä½ç½®  
             force[i][m] = 0;
         }
 
@@ -1225,7 +1225,7 @@ void segment_pro_calculate() {
               sum += (segment_temp_pro[j] - segment_temp_pro[i]) * (segment_temp_pro[j] - segment_temp_pro[i]);
               R = sqrt(sum);
               double x = RAND_C;
-              segment_force[i] += x * segment_gmass[j] * ((segment_temp_pro[j] - (segment_temp_pro[i]) / (r + R)));//ÇóµÚi¸öÁ£×Ó¸÷¸öÎ¬¶ÈÉÏµÄºÏÁ¦
+              segment_force[i] += x * segment_gmass[j] * ((segment_temp_pro[j] - (segment_temp_pro[i]) / (r + R)));//æ±‚ç¬¬iä¸ªç²’å­å„ä¸ªç»´åº¦ä¸Šçš„åˆåŠ›
               sum = 0;
 
             }
@@ -1251,7 +1251,7 @@ void segment_pro_calculate() {
                 segment_temp_pro[i] = POMIN;
 
             pos_temp += segment_temp_pro[i];
-            //¸üĞÂËÙ¶ÈºÍÎ»ÖÃ  
+            //æ›´æ–°é€Ÿåº¦å’Œä½ç½®  
             segment_force[i] = 0;
       
 
@@ -6033,7 +6033,7 @@ void gsa_updating(void)
                 for (int m = 0; m < OPERATOR_NUM; m++)
                 {
                     double x = RAND_C;
-                    force[i][m] += x * g_mass[j] * (position[j][m] - position[i][m]) / (r + R);//ÇóµÚi¸öÁ£×Ó¸÷¸öÎ¬¶ÈÉÏµÄºÏÁ¦
+                    force[i][m] += x * g_mass[j] * (position[j][m] - position[i][m]) / (r + R);//æ±‚ç¬¬iä¸ªç²’å­å„ä¸ªç»´åº¦ä¸Šçš„åˆåŠ›
                 }
                 sum = 0;
 
@@ -6061,7 +6061,7 @@ void gsa_updating(void)
                 position[i][m] = POMIN;
 
             pos_temp[i] += position[i][m];
-            //¸üĞÂËÙ¶ÈºÍÎ»ÖÃ  
+            //æ›´æ–°é€Ÿåº¦å’Œä½ç½®  
             force[i][m] = 0;
         }
 
@@ -6282,7 +6282,7 @@ static u8 GSA_fuzzing(char** argv) {
   //if (!(skip_deterministic == 0 && ((cur_ms_lv - last_path_time < flip_mode_time) ||
   //    (last_crash_time != 0 && cur_ms_lv - last_crash_time < flip_mode_time) || last_path_time == 0)))
   //{
-  //    skip_deterministic = 1;//ÊÇ·ñÆô¶¯ÁËpacemaker
+  //    skip_deterministic = 1;//æ˜¯å¦å¯åŠ¨äº†pacemaker
   //    goto havoc_stage;
   //}
 
@@ -7323,13 +7323,13 @@ havoc_stage:
     }
     for (i = 0; i < OPERATOR_NUM; i++)
     {
-        operator_cycles_count2[particle_now][i] = operator_cycles_count[particle_now][i];//v3ÓÃÓÚ±£´æ£¬v2ÓÃÓÚÖ´ĞĞ
+        operator_cycles_count2[particle_now][i] = operator_cycles_count[particle_now][i];//v3ç”¨äºä¿å­˜ï¼Œv2ç”¨äºæ‰§è¡Œ
     }
 
 
     for (i = 0; i < use_stacking; i++) {
         content_byte_len = (double)temp_len / (double)SEGMENT_NUM;
-        content_bit_len = (double)(temp_len << 3) / (double)SEGMENT_NUM;//add by lmm  Ã¿¶ÎÄÚÈİÆ½¾ù³¤¶È
+        content_bit_len = (double)(temp_len << 3) / (double)SEGMENT_NUM;//add by lmm  æ¯æ®µå†…å®¹å¹³å‡é•¿åº¦
       switch (select_algorithm(extras_cnt + a_extras_cnt)) {
 
         case 0:
@@ -7822,12 +7822,12 @@ havoc_stage:
             for (i = 0; i < OPERATOR_NUM; i++)
             {
                 
-                if (segment_op_count[j][i] > segment_op_count2[j][i])//Èç¹ûÄ³¸ö²Ù×÷Ö´ĞĞÁË£¬ÇÒÕâÒ»´Îfuzz·¢ÏÖÁËĞÂµÄÂ·¾¶£¬ÔòÈÏÎªÃ¿¸öÖ´ĞĞµÄ²Ù×÷¶¼¶ÔÕâ´Î²úÉúĞÂÂ·¾¶ÓĞĞ§£¬¶ÔÓ¦µÄÊı×éÖµ+1
+                if (segment_op_count[j][i] > segment_op_count2[j][i])//å¦‚æœæŸä¸ªæ“ä½œæ‰§è¡Œäº†ï¼Œä¸”è¿™ä¸€æ¬¡fuzzå‘ç°äº†æ–°çš„è·¯å¾„ï¼Œåˆ™è®¤ä¸ºæ¯ä¸ªæ‰§è¡Œçš„æ“ä½œéƒ½å¯¹è¿™æ¬¡äº§ç”Ÿæ–°è·¯å¾„æœ‰æ•ˆï¼Œå¯¹åº”çš„æ•°ç»„å€¼+1
                 {
                     indeterministic_find += temp_temp;
                     segment_op_find[j][i] += temp_temp;
                 }
-                if (operator_cycles_count[particle_now][i] > operator_cycles_count2[particle_now][i])//Èç¹ûÄ³¸ö²Ù×÷Ö´ĞĞÁË£¬ÇÒÕâÒ»´Îfuzz·¢ÏÖÁËĞÂµÄÂ·¾¶£¬ÔòÈÏÎªÃ¿¸öÖ´ĞĞµÄ²Ù×÷¶¼¶ÔÕâ´Î²úÉúĞÂÂ·¾¶ÓĞĞ§£¬¶ÔÓ¦µÄÊı×éÖµ+1
+                if (operator_cycles_count[particle_now][i] > operator_cycles_count2[particle_now][i])//å¦‚æœæŸä¸ªæ“ä½œæ‰§è¡Œäº†ï¼Œä¸”è¿™ä¸€æ¬¡fuzzå‘ç°äº†æ–°çš„è·¯å¾„ï¼Œåˆ™è®¤ä¸ºæ¯ä¸ªæ‰§è¡Œçš„æ“ä½œéƒ½å¯¹è¿™æ¬¡äº§ç”Ÿæ–°è·¯å¾„æœ‰æ•ˆï¼Œå¯¹åº”çš„æ•°ç»„å€¼+1
                     operator_finds_count[particle_now][i] += temp_temp;
             }
         }
@@ -7966,7 +7966,7 @@ abandon_entry:
       particle_now += 1;
       if (particle_now == SIZEPOP)
       {
-          process_num = 1;//×ªµ½gg2(content_fuzz)
+          process_num = 1;//è½¬åˆ°gg2(content_fuzz)
           p_segment_updating();
           particle_now = 0;
        }
@@ -10890,7 +10890,7 @@ int main(int argc, char** argv) {
       u64 time_to_GSA_fuzzing = flip_mode_time * 5 * 100;
       if (time_to_GSA_fuzzing < flip_mode_time) FATAL("limit_time overflow");
       flip_mode_time = time_to_GSA_fuzzing;
-      SAYF("default time_to_skip_deterministic %llu\n", flip_mode_time);
+      SAYF("default time_to_GSA_fuzzing %llu\n", flip_mode_time);
   }
 
   doc_path = access(DOC_PATH, F_OK) ? "docs" : DOC_PATH;
